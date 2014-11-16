@@ -1,6 +1,5 @@
 " .vimrc for Paul Lambert
 " OS X specific
-" plamb @ us . ibm . com
 
 " basics
 syntax on
