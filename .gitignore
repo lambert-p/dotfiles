@@ -4,6 +4,10 @@
 # vim files
 *.swp
 
+# emacs files
+\#*#
+\.#*
+
 # os x files
 .DS_Store*
 ehthumbs.db
