@@ -1,5 +1,6 @@
 " .vimrc for Paul Lambert
 " OS X specific
+" lambertington @ gmail . com
 
 " basics
 syntax on
