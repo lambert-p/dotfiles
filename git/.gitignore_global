@@ -40,6 +40,8 @@ tramp
 Session.vim
 .netrwhist
 *~
+*.swp
+*.swo
 
 
 ### OSX ###
