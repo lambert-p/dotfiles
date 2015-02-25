@@ -33,16 +33,14 @@ set autoindent        " automatically indents next line
 set smartindent       " automatically indents next line at beginning of loops, etc
 set expandtab         " inserts spaces rather than <TAB>s
 
-" turn off space-tabs for makefiles; change python tabs to 4 spaces
-" default to 2-space tabs
+" turn off space-tabs for makefiles; change python and ruby tabs to 2 spaces
 let _curfile = expand("%:t")
 if _curfile =~ "Makefile" || _curfile =~ "makefile" || _curfile =~ ".*\.mk"
     set noexpandtab
-elseif _curfile =~ ".*\.py"
+elseif _curfile =~ ".*\.py" || _curfile =~ ".*\.rb" || _curfile =~ "Gemfile"
     set expandtab
-    set tabstop=4       " width of <TAB> character
-    set shiftwidth=4    " handles auto indentation; >>, <<, and ==
-
+    set tabstop=2       " width of <TAB> character
+    set shiftwidth=2    " handles auto indentation; >>, <<, and ==
 else
     set expandtab
     set tabstop=4       " width of <TAB> character
@@ -62,6 +60,8 @@ if has('autocmd')
     au GUIEnter * set vb t_vb=
 endif
 
+set t_Co=256
+
 " use English for spell checking
 if version >= 700
     set spl=en spell
@@ -74,11 +74,7 @@ if has('gui_running')
 endif
 
 set background=dark   " because light hurts my eyes
-" colorscheme solarized " gvim/mvim color scheme
 colorscheme zenburn
-" colorscheme molokai2
-" colorscheme rdark
-" colorscheme ir_black
 
 " automatically cd into file's directory
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')

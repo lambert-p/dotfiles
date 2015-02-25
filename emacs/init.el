@@ -1,5 +1,6 @@
-;; hide the menu bar
+;; hide the menu bar and tool bar
 (menu-bar-mode -1)
+(tool-bar-mode -1)
 
 ;; color scheme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
