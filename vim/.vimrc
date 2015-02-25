@@ -60,6 +60,7 @@ if has('autocmd')
     au GUIEnter * set vb t_vb=
 endif
 
+" set terminal color to 256
 set t_Co=256
 
 " use English for spell checking
