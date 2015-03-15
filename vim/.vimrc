@@ -32,12 +32,13 @@ set smarttab          " uses SHIFTWIDTH rather than TABSTOP for beginning of lin
 set autoindent        " automatically indents next line
 set smartindent       " automatically indents next line at beginning of loops, etc
 set expandtab         " inserts spaces rather than <TAB>s
+set shiftround        " round indent to multiple of 'shiftwidth'
 
-" turn off space-tabs for makefiles; change python and ruby tabs to 2 spaces
+" turn off space-tabs for makefiles; change ruby tabs to 2 spaces
 let _curfile = expand("%:t")
 if _curfile =~ "Makefile" || _curfile =~ "makefile" || _curfile =~ ".*\.mk"
     set noexpandtab
-elseif _curfile =~ ".*\.py" || _curfile =~ ".*\.rb" || _curfile =~ "Gemfile"
+elseif _curfile =~ ".*\.rb" || _curfile =~ "Gemfile"
     set expandtab
     set tabstop=2       " width of <TAB> character
     set shiftwidth=2    " handles auto indentation; >>, <<, and ==
