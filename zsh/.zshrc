@@ -32,3 +32,4 @@ fi
 alias ll='ls -AlGF'
 alias up='cd ..'
 alias tmux="tmux -2"
+alias 'open'='xdg-open'
