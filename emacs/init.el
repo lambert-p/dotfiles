@@ -19,12 +19,6 @@
   (package-install 'use-package))
 (require 'use-package)
 
-;; rebind <RET> to newline-and-indent (default C-j)
-; (add-hook 'c-mode-hook
-; 	  '(lambda ()
-; 	     (define-key c-mode-map "\C-m" 'newline-and-indent)))
-
-
 ;; activate emacs code browser
 (require 'ecb)
 
