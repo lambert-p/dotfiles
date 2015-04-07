@@ -21,7 +21,6 @@
 (define-key minibuffer-local-must-match-map [escape] 'my-minibuffer-keyboard-quit)
 (define-key minibuffer-local-isearch-map [escape] 'my-minibuffer-keyboard-quit)
 
-
 ;; map M-x describe-function to 'k'
 (evil-define-key 'normal emacs-lisp-mode-map (kbd "K")
   'elisp-slime-nav-describe-elisp-thing-at-point)
