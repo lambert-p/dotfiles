@@ -45,27 +45,17 @@
       inhibit-startup-echo-area-message t
       inhibit-startup-message t)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; evil mode configuration ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; helper function for making evil-mode esc work properly
+(defun my-minibuffer-keyboard-quit ()
+  "Abort recursive edit.
+  From github user @davvil's init.el"
+  (interactive)
+  (if (and delete-selection-mode transient-mark-mode mark-active)
+      (setq deactivate-mark t)
+    (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
+    (abort-recursive-edit)))
 
-;; make C-u scroll up
-(setq evil-want-C-u-scroll t)
+(require 'my-evil)
+(require 'my-magit)
 
-;; enable evil-mode
-(require 'evil)
-(evil-mode 1)
-
-;; esc ALWAYS quits
-(define-key evil-normal-state-map [escape] 'keyboard-quit)
-(define-key evil-visual-state-map [escape] 'keyboard-quit)
-(define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
-(define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
-(define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
-(define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
-(define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
-
-;; map M-x describe-function to 'k'
-(evil-define-key 'normal emacs-lisp-mode-map (kbd "K")
-  'elisp-slime-nav-describe-elisp-thing-at-point)
 
