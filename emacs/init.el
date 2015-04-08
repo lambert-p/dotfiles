@@ -12,12 +12,15 @@
 ;; add package manager sources
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
                          ("org" . "http://orgmode.org/elpa/")
-                         ("gnu" . "htp://elpa.gnu.org/packages/")))
+                         ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 (require 'use-package)
+
+(unless (package-installed-p 'cider)
+  (package-install 'cider))
 
 ;; activate emacs code browser
 (require 'ecb)
