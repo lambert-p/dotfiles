@@ -1,5 +1,4 @@
 ;; my-helpers.el
-
 ;; includes helper functions for emacs functionality
 
 ;; helper function for making evil-mode esc work properly

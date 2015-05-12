@@ -1,43 +1,47 @@
 ;; init.el for Paul Lambert < lambertington @ gmail.com >
 ;; github.com/lambertington
 
+(require 'cl)
+
 ;; initialize package manger
 (require 'package)
-(package-initialize)
-(setq package-enable-at-startup nil)
-
-;; set up custom load path
-(add-to-list 'load-path (concat user-emacs-directory "config"))
-
-;; add package manager sources
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
                          ("org" . "http://orgmode.org/elpa/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize)
+(setq package-enable-at-startup nil)
 
-(unless (package-installed-p 'use-package)
+;; list taken from `C-h v package-activated-list`
+(defvar my-packages
+  '(cider-decompile javap-mode cider queue pkg-info epl dash clojure-mode
+                    cider-eval-sexp-fu eval-sexp-fu highlight highlight cider-profile cider
+                    queue pkg-info epl dash clojure-mode cider-spy dash cider queue pkg-info
+                    epl dash clojure-mode clojure-mode dash ecb elisp-slime-nav eval-sexp-fu
+                    highlight evil goto-chg undo-tree ghc goto-chg haskell-emacs haskell-mode
+                    highlight javap-mode magit git-rebase-mode git-commit-mode markdown-mode
+                    paredit pkg-info epl python-mode queue undo-tree 
+                    diminish bind-key web-mode)
+  "A list of packages to ensure are installed at launch.")
+
+(defun my-packages-installed-p ()
+  (loop for p in my-packages
+        when (not (package-installed-p p)) do (return nil)
+        finally (return t)))
+
+(unless (my-packages-installed-p)
+  ;; check for new packages
   (package-refresh-contents)
-  (package-install 'use-package))
-(require 'use-package)
+  ;; install missing packages
+  (dolist (p my-packages)
+    (when (not (package-installed-p p))
+      (package-install p))))
 
-(unless (package-installed-p 'cider)
-  (package-install 'cider))
-
-;; activate web-mode
-(require 'web-mode)
-(defun my-web-mode-hook()
-  "Hooks for web-mode"
-  (setq web-mode-markup-indent-offset 2))
-(add-hook 'web-mode-hook 'my-web-mode-hook)
-(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-
-;; activate emacs code browser
-(require 'ecb)
+;; set up custom load path
+(add-to-list 'load-path (concat user-emacs-directory "config"))
 
 ;; include all my stuff, located in ./config
 (require 'my-setup)
 (require 'my-helpers)
 (require 'my-evil)
-(require 'my-magit)
+(require 'my-web-mode)
+;; (require 'my-magit)
