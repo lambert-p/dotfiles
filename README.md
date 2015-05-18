@@ -10,7 +10,7 @@ The following is a note to myself
 
 apt-get install build-essential clang git vim tmux curl
 
-*build emacs from source*
+###build emacs from source###
 
 apt-get build-dep emacs24
 
@@ -40,7 +40,7 @@ get my dotfiles from github
 
 
 
-*install ruby stuff*
+###install ruby stuff###
 
 curl -sSL https://get.rvm.io | bash
 
@@ -69,17 +69,17 @@ gem install pg
 bundle install
 
 
-*python 2.7.9 and 3.4.3 installed by default*
+###python 2.7.9 and 3.4.3 installed by default###
 
 python should be good?
 
 
-*heroku*
+###heroku###
 
 install heroku toolbet from website
 
 
-*installing clojure*
+###installing clojure###
 
 download lein install script, move to /usr/local/bin and chmod +x it
 
@@ -88,22 +88,22 @@ apt-get install openjdk-8-jdk
 run /usr/local/bin/lein
 
 
-*opengl*
+###opengl###
 
 apt-get install freeglut3 freeglut3-dbg freeglu3-dev
 
 
-*haskell*
+###haskell###
 
 apt-get install ghc
 
 
-*LaTeX*
+###LaTeX###
 
 blah
 
 
-*sbcl*
+###sbcl###
 
 apt-get install sbcl
 
