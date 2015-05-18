@@ -19,7 +19,7 @@
                     epl dash clojure-mode clojure-mode dash ecb elisp-slime-nav eval-sexp-fu
                     highlight evil goto-chg undo-tree ghc goto-chg haskell-emacs haskell-mode
                     highlight javap-mode magit git-rebase-mode git-commit-mode markdown-mode
-                    paredit pkg-info epl python-mode queue undo-tree 
+                    paredit pkg-info epl python-mode queue undo-tree slime
                     diminish bind-key web-mode)
   "A list of packages to ensure are installed at launch.")
 
@@ -38,6 +38,9 @@
 
 ;; set up custom load path
 (add-to-list 'load-path (concat user-emacs-directory "config"))
+
+;; set up lisp system
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
 
 ;; include all my stuff, located in ./config
 (require 'my-setup)
