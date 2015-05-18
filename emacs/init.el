@@ -39,11 +39,9 @@
 ;; set up custom load path
 (add-to-list 'load-path (concat user-emacs-directory "config"))
 
-;; set up lisp system
-(setq inferior-lisp-program "/usr/local/bin/sbcl")
-
 ;; include all my stuff, located in ./config
 (require 'my-setup)
+(require 'my-slime)
 (require 'my-helpers)
 (require 'my-evil)
 (require 'my-web-mode)
