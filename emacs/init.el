@@ -13,15 +13,15 @@
 
 ;; list taken from `C-h v package-activated-list`
 (defvar my-packages
-  '(linum-relative linum-relative bind-key cider-decompile javap-mode
-                   cider queue pkg-info epl dash clojure-mode cider-eval-sexp-fu
-                   eval-sexp-fu highlight highlight cider-profile cider queue pkg-info
-                   epl dash clojure-mode cider-spy dash cider queue pkg-info epl
-                   dash clojure-mode clojure-mode dash diminish ecb elisp-slime-nav
-                   eval-sexp-fu highlight evil goto-chg undo-tree ghc
-                   goto-chg haskell-emacs haskell-mode highlight javap-mode magit
-                   git-rebase-mode git-commit-mode markdown-mode paredit
-                   pkg-info epl python-mode queue slime undo-tree web-mode)
+  '(typescript-mode typescript-mode bind-key cider-decompile javap-mode
+                    cider queue pkg-info epl dash clojure-mode cider-eval-sexp-fu
+                    eval-sexp-fu highlight highlight cider-profile cider queue
+                    pkg-info epl dash clojure-mode cider-spy dash cider queue pkg-info
+                    epl dash clojure-mode clojure-mode dash diminish ecb elisp-slime-nav
+                    eval-sexp-fu highlight evil goto-chg undo-tree ghc
+                    goto-chg haskell-emacs haskell-mode highlight javap-mode
+                    linum-relative magit git-rebase-mode git-commit-mode markdown-mode
+                    paredit pkg-info epl python-mode queue slime undo-tree web-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
