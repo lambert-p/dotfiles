@@ -46,4 +46,5 @@
 (require 'my-helpers)
 (require 'my-evil)
 (require 'my-web-mode)
+(require 'my-javascript-mode)
 ;; (require 'my-magit)
