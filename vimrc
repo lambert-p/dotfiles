@@ -1,5 +1,4 @@
 " .vimrc for Paul Lambert
-" formerly OS X specific; now Ubuntu 14.10
 " lambertington @ gmail . com
 
 " basics
