@@ -26,8 +26,8 @@
       inhibit-startup-message t)
 
 ; set up default size
-(add-to-list 'default-frame-alist '(height . 50))
-(add-to-list 'default-frame-alist '(width . 50))
+; (add-to-list 'default-frame-alist '(height . 50))
+; (add-to-list 'default-frame-alist '(width . 50))
 
 ; better word wrapping
 (visual-line-mode 1)
