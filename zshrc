@@ -1,3 +1,6 @@
+# tmux by default
+[[ $TERM != "screen-256color" ]] && exec tmux
+
 # Path to your oh-my-zsh installation.
 export ZSH=/home/paul/.oh-my-zsh
 
