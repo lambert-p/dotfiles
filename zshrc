@@ -25,18 +25,22 @@ else
   export EDITOR='vim'
 fi
 
-# my aliases
-alias ll='ls -AlGF'
-alias up='cd ..'
-alias tmux="tmux -2"
-alias 'open'='xdg-open'
-
 # load in api keys
 if [ -f ~/.zsh/apikeys ]; then
     source ~/.zsh/apikeys
 else
     print "404: ~/.zsh/apikeys not found."
 fi
+
+# launch tmux automatically
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux -2
+
+# my aliases
+alias ll='ls -AlGF'
+alias up='cd ..'
+alias tmux="tmux -2"
+alias 'open'='xdg-open'
 
 # adding rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
