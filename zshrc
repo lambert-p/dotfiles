@@ -45,6 +45,10 @@ alias 'open'='xdg-open'
 # aliases for mac
 if [ `uname` = 'Darwin' ]; then
    alias emacs='open /Applications/Emacs.app'
+   alias gcc='gcc-4.8'
+   alias g++='g++-4.8'
+   alias python='python2'
+   alias PYTHON='python2'
 fi
 
 # adding rvm
