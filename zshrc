@@ -14,10 +14,11 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-# User configuration
-
-#export PATH="/home/paul/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-export PATH="$PATH:/Users/lita/.rvm/gems/ruby-2.2.0/bin:/Users/lita/.rvm/gems/ruby-2.2.0@global/bin:/Users/lita/.rvm/rubies/ruby-2.2.0/bin:/Users/lita/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+if [ `uname` = 'Darwin' ] ; then
+    export PATH="$PATH:/Users/lita/.rvm/gems/ruby-2.2.0/bin:/Users/lita/.rvm/gems/ruby-2.2.0@global/bin:/Users/lita/.rvm/rubies/ruby-2.2.0/bin:/Users/lita/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+else
+    export PATH="/home/paul/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+fi
 
 
 source $ZSH/oh-my-zsh.sh
