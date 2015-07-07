@@ -1,5 +1,9 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/paul/.oh-my-zsh
+if [ `uname` = 'Darwin' ] ; then
+    export ZSH=/Users/lita/.oh-my-zsh
+else
+    export ZSH=/home/paul/.oh-my-zsh
+fi
 
 # Set name of the theme to load.
 ZSH_THEME="robbyrussell"
@@ -12,35 +16,35 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/home/paul/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+#export PATH="/home/paul/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="$PATH:/Users/lita/.rvm/gems/ruby-2.2.0/bin:/Users/lita/.rvm/gems/ruby-2.2.0@global/bin:/Users/lita/.rvm/rubies/ruby-2.2.0/bin:/Users/lita/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+
 
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vim'
-fi
-
 # load in api keys
-if [ -f ~/.zsh/apikeys ]; then
-    source ~/.zsh/apikeys
-else
-    print "404: ~/.zsh/apikeys not found."
-fi
+# if [ -f ~/.zsh/apikeys ]; then
+#     source ~/.zsh/apikeys
+# else
+#     print "404: ~/.zsh/apikeys not found."
+# fi
 
 # launch tmux automatically
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux -2
+# [[ $- != *i* ]] && return
+# [[ -z "$TMUX" ]] && exec tmux -2
 
 # my aliases
 alias ll='ls -AlGF'
 alias up='cd ..'
 alias tmux="tmux -2"
 alias 'open'='xdg-open'
+
+# aliases for mac
+if [ `uname` = 'Darwin' ]; then
+   alias emacs='open /Applications/Emacs.app'
+fi
 
 # adding rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

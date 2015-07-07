@@ -19,7 +19,7 @@
              dash cider queue pkg-info epl dash clojure-mode clojure-mode dash diminish
              ecb elisp-slime-nav eval-sexp-fu highlight evil goto-chg undo-tree ghc
              haskell-mode goto-chg haskell-emacs haskell-mode highlight javap-mode
-             linum-relative magit git-rebase-mode git-commit-mode markdown-mode paredit
+             linum-relative markdown-mode paredit
              pkg-info epl python-mode queue slime typescript-mode undo-tree web-mode)
   "A list of packages to ensure are installed at launch.")
 
