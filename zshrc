@@ -15,7 +15,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 if [ `uname` = 'Darwin' ] ; then
-    export PATH="$PATH:/Users/lita/.rvm/gems/ruby-2.2.0/bin:/Users/lita/.rvm/gems/ruby-2.2.0@global/bin:/Users/lita/.rvm/rubies/ruby-2.2.0/bin:/Users/lita/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+    export PATH="$PATH:/Users/lita/.rvm/gems/ruby-2.2.0/bin:/Users/lita/.rvm/gems/ruby-2.2.0@global/bin:/Users/lita/.rvm/rubies/ruby-2.2.0/bin:/Users/lita/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/mongodb/bin"
 else
     export PATH="/home/paul/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 fi
@@ -40,7 +40,6 @@ export EDITOR='vim'
 alias ll='ls -AlGF'
 alias up='cd ..'
 alias tmux="tmux -2"
-alias 'open'='xdg-open'
 
 # aliases for mac
 if [ `uname` = 'Darwin' ]; then
@@ -49,6 +48,8 @@ if [ `uname` = 'Darwin' ]; then
    alias g++='g++-4.8'
    alias python='python2'
    alias PYTHON='python2'
+else
+    alias 'open'='xdg-open'
 fi
 
 # set java 1.6 as default on OS X
