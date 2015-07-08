@@ -51,5 +51,10 @@ if [ `uname` = 'Darwin' ]; then
    alias PYTHON='python2'
 fi
 
+# set java 1.6 as default on OS X
+if [ `uname` = 'Darwin' ]; then
+    export JAVA_HOME=`/usr/libexec/java_home -v '1.6*'`
+fi
+
 # adding rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
