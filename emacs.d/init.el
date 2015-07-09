@@ -1,9 +1,9 @@
-;; init.el for Paul Lambert < lambertington @ gmail.com >
-;; github.com/lambertington
+;;;; init.el for Paul Lambert < lambertington @ gmail.com >
+;;;; github.com/lambertington
 
 (require 'cl)
 
-; initialize package manger
+;;; initialize package manger
 (require 'package)
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
                          ("org" . "http://orgmode.org/elpa/")
@@ -11,7 +11,7 @@
 (package-initialize)
 (setq package-enable-at-startup nil)
 
-; list taken from `C-h v package-activated-list`
+;;; list taken from `C-h v package-activated-list`
 (defvar my-packages
   '(yaml-mode yaml-mode bind-key cider-decompile javap-mode cider
               queue pkg-info epl dash clojure-mode cider-eval-sexp-fu
@@ -33,17 +33,17 @@
         finally (return t)))
 
 (unless (my-packages-installed-p)
-  ; check for new packages
+  ;; check for new packages
   (package-refresh-contents)
-  ; install missing packages
+  ;; install missing packages
   (dolist (p my-packages)
     (when (not (package-installed-p p))
       (package-install p))))
 
-; set up custom load path
+;;; set up custom load path
 (add-to-list 'load-path (concat user-emacs-directory "config"))
 
-; include all my stuff, located in ./config
+;;; include all my stuff, located in ./config
 (require 'my-setup)
 (require 'my-slime)
 (require 'my-helpers)

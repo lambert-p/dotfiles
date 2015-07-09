@@ -1,6 +1,6 @@
-;; my-web-mode.el
+;;;; my-web-mode.el
 
-; activate web-mode
+;;; activate web-mode
 (require 'web-mode)
 (defun my-web-mode-hook()
   "Hooks for web-mode"

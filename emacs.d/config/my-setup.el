@@ -1,7 +1,7 @@
-;; my-setup.el
-;; set up some global defaults for emacs behaviors and aesthetics
+;;;; my-setup.el
+;;;; set up some global defaults for emacs behaviors and aesthetics
 
-; hide the menu bar and tool bar
+;;; hide the menu bar and tool bar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -13,14 +13,14 @@
 
 (setq-default indent-tabs-mode nil)
 
-; change yes-or-no to y-or-n
+;; change yes-or-no to y-or-n
 (fset 'yes-or-no-p 'y-or-n-p)
 
-; color scheme
+;; color scheme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'zenburn t)
 
-; hide the startup messages
+;; hide the startup messages
 (setq inhibit-splash-screen t
       inhibit-startup-echo-area-message t
       inhibit-startup-message t)
@@ -29,10 +29,10 @@
 ; (add-to-list 'default-frame-alist '(height . 50))
 ; (add-to-list 'default-frame-alist '(width . 50))
 
-; better word wrapping
+;; better word wrapping
 (visual-line-mode 1)
 
-; enforce trailing newlines
+;; enforce trailing newlines
 (setq require-final-newline t)
 
 (provide 'my-setup)

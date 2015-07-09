@@ -1,7 +1,7 @@
-;; my-helpers.el
-;; includes helper functions for emacs functionality
+;;;; my-helpers.el
+;;;; includes helper functions for emacs functionality
 
-; helper function for making evil-mode esc work properly
+;;; helper function for making evil-mode esc work properly
 (defun my-minibuffer-keyboard-quit ()
   "Abort recursive edit.
   From github user @davvil's init.el"
@@ -11,7 +11,7 @@
     (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
     (abort-recursive-edit)))
 
-; helper function for managing package dependencies and controlling load order
+;;; helper function for managing package dependencies and controlling load order
 (defmacro my-after (feature &rest body)
   "After FEATURE is loaded, evaluate BODY.
    Taken from `Towards a Vim-like Emacs,` who in turn took it from milkbox."
