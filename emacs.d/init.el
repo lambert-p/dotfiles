@@ -15,30 +15,20 @@
 (defvar my-packages
   '(bind-key cider-decompile javap-mode cider queue pkg-info epl dash
              clojure-mode cider-eval-sexp-fu eval-sexp-fu highlight
-             highlight cider-profile cider queue pkg-info epl dash
-             clojure-mode cider-spy dash cider queue pkg-info epl dash
-             clojure-mode clojure-mode diminish ecb elisp-slime-nav
-             eval-sexp-fu highlight evil goto-chg undo-tree ghc haskell-mode
-             goto-chg haskell-emacs haskell-mode highlight javap-mode
-             linum-relative magit magit-popup dash git-commit with-editor
-             dash dash with-editor dash dash magit-popup dash markdown-mode
-             paredit pkg-info epl python-mode queue slime typescript-mode
-             undo-tree web-mode with-editor dash yaml-mode)
-
+             cider-profile cider-spy diminish elisp-slime-nav
+             evil goto-chg undo-tree ghc haskell-mode
+             haskell-emacs magit magit-popup git-commit with-editor
+             markdown-mode paredit python-mode slime typescript-mode
+             web-mode yaml-mode)
   "A list of packages to ensure are installed at launch.")
 
-(defun my-packages-installed-p ()
-  (loop for p in my-packages
-        when (not (package-installed-p p)) do (return nil)
-        finally (return t)))
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
-(unless (my-packages-installed-p)
-  ;; check for new packages
-  (package-refresh-contents)
-  ;; install missing packages
-  (dolist (p my-packages)
-    (when (not (package-installed-p p))
-      (package-install p))))
+(dolist (package my-packages)
+  (when (and (not (package-installed-p package))
+             (assoc package package-archive-contents))
+    (package-install package)))
 
 ;;; set up custom load path
 (add-to-list 'load-path (concat user-emacs-directory "config"))
