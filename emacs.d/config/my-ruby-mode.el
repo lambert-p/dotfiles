@@ -1,6 +1,6 @@
 ;;;; my-ruby-mode.el
 
-;; activate ruby-mode
+;;; activate ruby-mode
 (require 'ruby-mode)
 (defun my-ruby-mode-hook()
   "Hooks for ruby-mode"
