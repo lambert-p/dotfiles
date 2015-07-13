@@ -11,6 +11,7 @@
 (require 'my-setup)
 
 ;; include all my stuff, located in ./config
+(require 'my-coffee-mode)
 (require 'my-evil)
 (require 'my-helpers)
 (require 'my-javascript-mode)
