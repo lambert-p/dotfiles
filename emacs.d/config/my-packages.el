@@ -14,7 +14,8 @@
 ;;; list taken from `C-h v package-activated-list`
 (defvar my-packages
   '(bind-key cider-decompile javap-mode cider queue pkg-info epl dash
-             clojure-mode cider-eval-sexp-fu eval-sexp-fu highlight
+             clojure-mode cider-eval-sexp-fu coffee-mode eval-sexp-fu
+             highlight
              cider-profile cider-spy diminish elisp-slime-nav
              evil goto-chg undo-tree ghc haskell-mode
              haskell-emacs magit magit-popup git-commit with-editor
