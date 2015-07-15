@@ -61,7 +61,7 @@ if has('autocmd')
 endif
 
 " set terminal color to 256
-" set t_Co=256
+set t_Co=256
 
 " use English for spell checking
 if version >= 700
