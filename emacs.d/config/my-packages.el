@@ -15,7 +15,7 @@
 (defvar my-packages
   '(bind-key cider-decompile javap-mode cider queue pkg-info epl dash
              clojure-mode cider-eval-sexp-fu coffee-mode eval-sexp-fu
-             highlight
+             highlight org org-mode remember org-install
              cider-profile cider-spy diminish elisp-slime-nav
              evil goto-chg undo-tree ghc haskell-mode
              haskell-emacs magit magit-popup git-commit with-editor
