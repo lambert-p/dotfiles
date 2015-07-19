@@ -8,6 +8,9 @@
 
 (setq org-log-done t)
 
+(setq org-agenda-files (list "~/org/work.org"
+                             "~/org/home.org"))
+
 ;; (require 'org-install)
 ;; 
 ;; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
