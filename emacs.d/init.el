@@ -15,7 +15,7 @@
 (require 'my-evil)
 (require 'my-helpers)
 (require 'my-javascript-mode)
-; (require 'my-magit)
+(require 'my-magit)
 (require 'my-org-mode)
 (require 'my-ruby-mode)
 (require 'my-slime)
