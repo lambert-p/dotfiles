@@ -1,0 +1,42 @@
+#+TITLE: My Emacs Config
+#+AUTHOR: Paul M Lambert [[mailto:lambertington@gmail.com][lambertington@gmail.com]]
+#+STARTUP: hidestars
+#+PROPERTY: header-args:emacs-lisp :tangle yes
+
+Below is my Emacs configuration with [[info:org#Working with source code][documentation of what it does].
+
+* Header
+I include this library to ensure full Common Lisp functionality.
+#+BEGIN_SRC emacs-lisp
+(require 'cl)
+#+END_SRC
+
+* Personal Information
+I know Emacs -- it's only fair that Emacs knows me!
+#+BEGIN_SRC emacs-lisp
+(setq user-full-name "Paul M Lambert"
+      user-mail-address "lambertington@gmail.com")
+#+END_SRC
+
+* Setting up the package manager
+** Add package sources
+The default repos are pretty limited in their selection of packages, so let's add some better ones.
+#+BEGIN_SRC emacs-lisp
+;;; initialize package manger
+(require 'package)
+(setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
+                         ("org" . "http://orgmode.org/elpa/")
+                         ("gnu" . "http://elpa.gnu.org/packages/")))
+
+(package-refresh-contents)
+#+END_SRC
+
+You'll need to use =M-x package-refresh-contents= to reload the list of packages after adding these for the first time.
+
+** Adding use-package.el
+[[use-package.el][https://github.com/jwiegley/use-package] is a life saver. 
+
+#+BEGIN_SRC emacs-lisp
+(unless (package-installed-p 'use-package)
+  (packge-install use-package))
+#+END_SRC

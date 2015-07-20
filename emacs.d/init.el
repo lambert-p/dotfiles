@@ -21,3 +21,13 @@
 (require 'my-slime)
 (require 'my-web-mode)
 (require 'my-yaml-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;emacs.d/init.el;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'org)
+(require ob-tangle)
+
+(org-babel-load-file
+ (expand-file-name "~/.emacs.d/my-emacs-config.org"))
