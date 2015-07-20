@@ -50,3 +50,52 @@ You'll need to use =M-x package-refresh-contents= to reload the list of packages
     :init (auto-compile-on-load-mode))
   (setq load-prefer-newer t)
 #+END_SRC
+
+* General settings
+** Aesthetics
+With as much time as you spend in an editor, it's important to modify the looks to your pleasure!
+
+Hiding the menu, tool, and scroll bars
+
+#+BEGIN_SRC emacs-lisp
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+#+END_SRC
+
+Let's go ahead and enable our preferred color scheme, Zenburn
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+  (load-theme 'zenburn t)
+#+END_SRC
+
+** Global settings
+
+Change yes-or-no prompts to y-or-n, because typing that much that frequently is awful!
+
+#+BEGIN_SRC emacs-lisp
+  (fset 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+Switch from tabs to spaces for all files... tabs are worthless..
+
+#+BEGIN_SRC emacs-lisp
+(setq-default indent-tabs-mode nil)
+#+END_SRC
+
+Let's disable the nasty startup messages and go straight to the \*scratch\* buffer
+
+#+BEGIN_SRC emacs-lisp
+  (setq inhibit-splash-screen t
+        inhibit-startup-echo-area-message t
+        inhibit-startup-message t)
+#+END_SRC
+
+Enable line/col numbers on all files
+
+#+BEGIN_SRC emacs-lisp
+  (line-number-mode t)
+  (column-number-mode t)
+  (global-linum-mode t)
+#+END_SRC
