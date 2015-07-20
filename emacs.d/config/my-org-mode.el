@@ -6,7 +6,9 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 
-(setq org-log-done t)
+;; record when switching from a TODO state to a DONE state
+(setq org-log-done 'time)
+(setq org-log-done 'note)
 
 (setq org-agenda-files (list "~/org/work.org"
                              "~/org/home.org"
