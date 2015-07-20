@@ -11,6 +11,10 @@
 (setq org-agenda-files (list "~/org/work.org"
                              "~/org/home.org"
                              "~/org/todo.org"))
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "|" "DONE(d)")
+        (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
+        (sequence "|" "CANCELED(c)")))
 
 ; (eval-after-load "org"
 ;   '(progn
