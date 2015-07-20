@@ -17,7 +17,7 @@
              clojure-mode cider-eval-sexp-fu coffee-mode eval-sexp-fu
              highlight org org-mode remember org-install
              cider-profile cider-spy diminish elisp-slime-nav
-             evil goto-chg undo-tree ghc haskell-mode
+             evil goto-chg undo-tree ghc haskell-mode magit
              haskell-emacs magit magit-popup git-commit with-editor
              markdown-mode paredit python-mode slime typescript-mode
              web-mode yaml-mode)
