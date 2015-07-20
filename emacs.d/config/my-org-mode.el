@@ -9,7 +9,8 @@
 (setq org-log-done t)
 
 (setq org-agenda-files (list "~/org/work.org"
-                             "~/org/home.org"))
+                             "~/org/home.org"
+                             "~/org/todo.org"))
 
 (eval-after-load "org"
   '(progn
@@ -45,7 +46,6 @@
 (define-key global-map [(control meta ?r)] 'remember)
 
 (custom-set-variables
- '(org-agenda-files (quote ("~/org/todo.org")))
  '(org-default-notes-file "~/org/notes.org")
  '(org-agenda-ndays 7)
  '(org-deadline-warning-days 14)
