@@ -155,6 +155,44 @@ Function for making evil-mode esc work properly
      js2-basic-offset 2
      js2-bounce-indent-p nil))
 #+END_SRC
+   
+** Lisp
+
+
+#+BEGIN_SRC emacs-lisp
+  (use-package elisp-slime-nav
+    :ensure t
+    :commands lisp-mode
+    :config
+    (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
+      (add-hook hook 'elisp-slime-nav-mode))
+
+    ;; hook up SLIME to SBCL
+    (setq inferior-lisp-program "/usr/local/bin/sbcl")
+    :bind ("C-h K" . find-function-on-key))
+
+#+END_SRC
+   
+** Ruby
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ruby-mode
+    :ensure t
+    :commands ruby-mode
+    :mode (("Gemfile\\'" . ruby-mode)
+           ("Kirkfile\\'" . ruby-mode)
+           ("Rakefile\\'" . ruby-mode)
+           ("Vagrantfile\\'" . ruby-mode)
+           ("\\.builder\\'" . ruby-mode)
+           ("\\.gemspec\\'" . ruby-mode)
+           ("\\.irbrc\\'" . ruby-mode)
+           ("\\.pryrc\\'" . ruby-mode)
+           ("\\.rake\\'" . ruby-mode)
+           ("\\.rjs\\'" . ruby-mode)
+           ("\\.ru\\'" . ruby-mode)
+           ("\\.rxml\\'" . ruby-mode))
+    :init (setq ruby-use-encoding-map nil))
+#+END_SRC
 
 ** Web mode
 
@@ -166,6 +204,13 @@ Function for making evil-mode esc work properly
     (setq
      web-mode-markup-indent-offet 2
      web-mode-css-indent-offset 2))
+#+END_SRC
+   
+** YAML
+
+#+BEGIN_SRC emacs-lisp
+  (use-package yaml-mode
+    :commands yaml-mode)
 #+END_SRC
 
 * Utility
@@ -201,10 +246,10 @@ Function for making evil-mode esc work properly
 
       ;; map M-x describe-function to 'k'
       (evil-define-key 'normal emacs-lisp-mode-map (kbd "K")
-        'elisp-slime-nav-describe-elisp-thing-at-point))
-    ;; boot evil by default
-    (evil-mode 1))
+        'elisp-slime-nav-describe-elisp-thing-at-point)
 
+      ;; boot evil by default
+      (evil-mode 1)))
 
 #+END_SRC
 
