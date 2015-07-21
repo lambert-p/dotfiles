@@ -143,6 +143,14 @@ Function for making evil-mode esc work properly
     :config
     (custom-set-variables '(coffee-tab-width 2)))
 #+END_SRC
+   
+** Haskell
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ghc
+    :ensure t
+    :commands ghc)
+#+END_SRC
 
 ** Javascript
 
@@ -158,7 +166,6 @@ Function for making evil-mode esc work properly
    
 ** Lisp
 
-
 #+BEGIN_SRC emacs-lisp
   (use-package elisp-slime-nav
     :ensure t
@@ -172,7 +179,15 @@ Function for making evil-mode esc work properly
     :bind ("C-h K" . find-function-on-key))
 
 #+END_SRC
+
+** Python
    
+#+BEGIN_SRC emacs-lisp
+  (use-package python-mode
+    :ensure t
+    :commands python-mode)
+#+END_SRC
+
 ** Ruby
 
 #+BEGIN_SRC emacs-lisp
