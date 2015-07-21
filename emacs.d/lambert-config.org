@@ -113,7 +113,8 @@ And all the smaller, miscellaneous changes
 #+END_SRC
 
 * Helper Functions
-Function for making evil-mode esc work properly
+Function for making evil-mode =<Esc>= work properly -- in particular, hitting =<Esc>= should quit the minibuffer. 
+
 #+BEGIN_SRC emacs-lisp
   (defun my-minibuffer-keyboard-quit ()
     "Abort recursive edit.
