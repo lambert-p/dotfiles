@@ -25,13 +25,13 @@ I know Emacs -- it's only fair that Emacs knows me!
 The default repos are pretty limited in their selection of packages, so let's add some better ones.
 
 #+BEGIN_SRC emacs-lisp
-  ;;; initialize package manger
   (require 'package)
-  (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
-                           ("org" . "http://orgmode.org/elpa/")
-                           ("gnu" . "http://elpa.gnu.org/packages/")))
-
-  (package-refresh-contents)
+  (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+  (unless (assoc-default "melpa" package-archives)
+    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+    (package-refresh-contents))
+  (package-initialize)
+  (setq package-enable-at-startup nil)
 #+END_SRC
 
 You'll need to use =M-x package-refresh-contents= to reload the list of packages after adding these for the first time.
@@ -45,17 +45,16 @@ You'll need to use =M-x package-refresh-contents= to reload the list of packages
   (setq use-package-verbose t)
 
   (require 'use-package)
+
   (use-package auto-compile
     :ensure t
-    :init (auto-compile-on-load-mode))
+    :config (auto-compile-on-load-mode))
   (setq load-prefer-newer t)
 #+END_SRC
 
 * General settings
 ** Aesthetics
-With as much time as you spend in an editor, it's important to modify the looks to your pleasure!
-
-Hiding the menu, tool, and scroll bars
+Remove the ugly menu bars and scroll bars and such
 
 #+BEGIN_SRC emacs-lisp
   (menu-bar-mode -1)
@@ -63,14 +62,14 @@ Hiding the menu, tool, and scroll bars
   (scroll-bar-mode -1)
 #+END_SRC
 
-Let's go ahead and enable our preferred color scheme, Zenburn
+Set up the awesome color scheme, Zenburn!
 
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
   (load-theme 'zenburn t)
 #+END_SRC
 
-** Global settings
+** Global defaults
 
 Change yes-or-no prompts to y-or-n, because typing that much that frequently is awful!
 
@@ -98,4 +97,150 @@ Enable line/col numbers on all files
   (line-number-mode t)
   (column-number-mode t)
   (global-linum-mode t)
+#+END_SRC
+
+And all the smaller, miscellaneous changes
+
+#+BEGIN_SRC emacs-lisp
+  ;; use English as our base language
+  (setq current-language-environment "English")
+
+  ;; better word wrapping
+  (visual-line-mode 1)
+
+  ;; enforce trailing newlines
+  (setq require-final-newline t)
+#+END_SRC
+
+* Helper Functions
+Function for making evil-mode esc work properly
+#+BEGIN_SRC emacs-lisp
+  (defun my-minibuffer-keyboard-quit ()
+    "Abort recursive edit.
+    From github user @davvil's init.el"
+    (interactive)
+    (if (and delete-selection-mode transient-mark-mode mark-active)
+        (setq deactivate-mark t)
+      (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
+      (abort-recursive-edit)))
+
+#+END_SRC
+
+* Languages
+** Clojure
+
+#+BEGIN_SRC emacs-lisp
+  (use-package cider
+    :ensure t)
+#+END_SRC
+
+** CoffeeScript
+
+#+BEGIN_SRC emacs-lisp
+  (use-package coffee-mode
+    :ensure t
+    :mode "\\.coffee\\'"
+    :config
+    (custom-set-variables '(coffee-tab-width 2)))
+#+END_SRC
+
+** Javascript
+
+#+BEGIN_SRC emacs-lisp
+  (use-package js2-mode
+    :ensure t
+    :mode "\\.js\\'"
+    :config
+    (setq
+     js2-basic-offset 2
+     js2-bounce-indent-p nil))
+#+END_SRC
+
+** Web mode
+
+#+BEGIN_SRC emacs-lisp
+  (use-package web-mode
+    :ensure t
+    :mode "\\.(html?|css|scss|erb|php|[agj]sp|as[cp]x)\\'"
+    :config
+    (setq
+     web-mode-markup-indent-offet 2
+     web-mode-css-indent-offset 2))
+#+END_SRC
+
+* Utility
+** Evil-mode
+
+#+BEGIN_SRC emacs-lisp
+  (use-package evil
+    :ensure t
+    :init
+    (progn
+      (setq
+       ;; incremental search
+       evil-search-module 'isearch
+
+       ;; switch from emacs' default undo
+       evil-want-fine-undo t))
+    :config
+    (progn
+      ;; Map C-d C-u
+      (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+      (define-key evil-normal-state-map (kbd "C-d") 'evil-scroll-down)
+      (define-key evil-motion-state-map (kbd "C-u") 'evil-scroll-up)
+      (define-key evil-motion-state-map (kbd "C-d") 'evil-scroll-down)
+
+      ;; esc ALWAYS quits
+      (define-key evil-normal-state-map [escape] 'keyboard-quit)
+      (define-key evil-visual-state-map [escape] 'keyboard-quit)
+      (define-key minibuffer-local-map [escape] 'my-minibuffer-keyboard-quit)
+      (define-key minibuffer-local-ns-map [escape] 'my-minibuffer-keyboard-quit)
+      (define-key minibuffer-local-completion-map [escape] 'my-minibuffer-keyboard-quit)
+      (define-key minibuffer-local-must-match-map [escape] 'my-minibuffer-keyboard-quit)
+      (define-key minibuffer-local-isearch-map [escape] 'my-minibuffer-keyboard-quit)
+
+      ;; map M-x describe-function to 'k'
+      (evil-define-key 'normal emacs-lisp-mode-map (kbd "K")
+        'elisp-slime-nav-describe-elisp-thing-at-point))
+    ;; boot evil by default
+    (evil-mode 1))
+
+
+#+END_SRC
+
+** Magit
+
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :ensure t
+    :config
+    (setq magit-last-seen-setup-instructions "1.4.0")
+    (global-set-key (kbd "C-x g") 'magit-status))
+#+END_SRC
+
+** Org mode
+
+#+BEGIN_SRC emacs-lisp
+  (use-package org
+    :ensure t
+    :config
+    (define-key global-map "\C-cl" 'org-store-link)
+    (define-key global-map "\C-ca" 'org-agenda)
+
+    ;; record when switching from a TODO state to a DONE state
+    (setq
+     org-log-done 'time
+     org-log-done 'note
+
+     org-agenda-files (list "~/org/work.org"
+                            "~/org/home.org"
+                            "~/org/todo.org")
+     org-todo-keywords
+     '((sequence "TODO(t)" "|" "DONE(d)")
+       (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
+       (sequence "|" "CANCELED(c)"))
+
+     ;; warn me two weeks in advance about looming deadlines
+     org-deadline-warning-days 14))
+
 #+END_SRC
