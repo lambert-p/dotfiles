@@ -169,6 +169,7 @@
   :config
   (define-key global-map "\C-cl" 'org-store-link)
   (define-key global-map "\C-ca" 'org-agenda)
+  (define-key org-mode-map "\M-q" 'toggle-truncate-lines)
 
   ;; record when switching from a TODO state to a DONE state
   (setq

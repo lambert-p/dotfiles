@@ -3,5 +3,5 @@
 
 (require 'org)
 
-(org-babel-load-file
- (expand-file-name "~/.emacs.d/my-emacs-config.org"))
+(setq custom-org "~/.emacs.d/lambert-config.org")
+(org-babel-load-file (expand-file-name custom-org))

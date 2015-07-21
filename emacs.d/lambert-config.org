@@ -3,7 +3,7 @@
 #+STARTUP: hidestars
 #+PROPERTY: header-args:emacs-lisp :tangle yes
 
-Below is my Emacs configuration with [[info:org#Working with source code][documentation of what it does].
+Below is my Emacs configuration with [[info:org#Working with source code][documentation of what it does]].
 
 * Header
 I include this library to ensure full Common Lisp functionality.
@@ -143,7 +143,7 @@ Function for making evil-mode esc work properly
     :config
     (custom-set-variables '(coffee-tab-width 2)))
 #+END_SRC
-   
+
 ** Haskell
 
 #+BEGIN_SRC emacs-lisp
@@ -163,7 +163,7 @@ Function for making evil-mode esc work properly
      js2-basic-offset 2
      js2-bounce-indent-p nil))
 #+END_SRC
-   
+
 ** Lisp
 
 #+BEGIN_SRC emacs-lisp
@@ -181,7 +181,7 @@ Function for making evil-mode esc work properly
 #+END_SRC
 
 ** Python
-   
+
 #+BEGIN_SRC emacs-lisp
   (use-package python-mode
     :ensure t
@@ -220,7 +220,7 @@ Function for making evil-mode esc work properly
      web-mode-markup-indent-offet 2
      web-mode-css-indent-offset 2))
 #+END_SRC
-   
+
 ** YAML
 
 #+BEGIN_SRC emacs-lisp
@@ -286,6 +286,7 @@ Function for making evil-mode esc work properly
     :config
     (define-key global-map "\C-cl" 'org-store-link)
     (define-key global-map "\C-ca" 'org-agenda)
+    (define-key org-mode-map "\M-q" 'toggle-truncate-lines)
 
     ;; record when switching from a TODO state to a DONE state
     (setq
