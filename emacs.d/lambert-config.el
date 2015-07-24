@@ -9,6 +9,7 @@
 (unless (assoc-default "melpa" package-archives)
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
   (package-refresh-contents))
+
 (package-initialize)
 (setq package-enable-at-startup nil)
 
@@ -21,6 +22,7 @@
 (use-package auto-compile
   :ensure t
   :config (auto-compile-on-load-mode))
+
 (setq load-prefer-newer t)
 
 (menu-bar-mode -1)

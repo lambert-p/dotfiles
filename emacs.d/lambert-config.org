@@ -6,7 +6,7 @@
 Below is my Emacs configuration with [[info:org#Working with source code][documentation of what it does]].
 
 * Header
-I include this library to ensure full Common Lisp functionality.
+I include full Common Lisp functionality.
 
 #+BEGIN_SRC emacs-lisp
   (require 'cl)
@@ -30,6 +30,7 @@ The default repos are pretty limited in their selection of packages, so let's ad
   (unless (assoc-default "melpa" package-archives)
     (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
     (package-refresh-contents))
+
   (package-initialize)
   (setq package-enable-at-startup nil)
 #+END_SRC
@@ -49,6 +50,7 @@ You'll need to use =M-x package-refresh-contents= to reload the list of packages
   (use-package auto-compile
     :ensure t
     :config (auto-compile-on-load-mode))
+
   (setq load-prefer-newer t)
 #+END_SRC
 
@@ -128,6 +130,8 @@ Function for making evil-mode =<Esc>= work properly -- in particular, hitting =<
 #+END_SRC
 
 * Languages
+  Below are language-specific packages and their customizations. 
+
 ** Clojure
 
 #+BEGIN_SRC emacs-lisp
