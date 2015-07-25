@@ -1,9 +1,11 @@
 
 (require 'cl)
 
+;; include user information
 (setq user-full-name "Paul M Lambert"
       user-mail-address "lambertington@gmail.com")
 
+;; update package sources
 (require 'package)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (unless (assoc-default "melpa" package-archives)
@@ -13,6 +15,7 @@
 (package-initialize)
 (setq package-enable-at-startup nil)
 
+;; use-package.el init
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 (setq use-package-verbose t)
@@ -25,21 +28,27 @@
 
 (setq load-prefer-newer t)
 
+;; remove bars 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+;; custom color scheme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'zenburn t)
 
+;; change the default prompts
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; use spaces by default
 (setq-default indent-tabs-mode nil)
 
+;; disable splash screen
 (setq inhibit-splash-screen t
       inhibit-startup-echo-area-message t
       inhibit-startup-message t)
 
+;; enable line and column numbers
 (line-number-mode t)
 (column-number-mode t)
 (global-linum-mode t)
@@ -53,28 +62,32 @@
 ;; enforce trailing newlines
 (setq require-final-newline t)
 
+;; quit minibuffer entirely with <Esc>
 (defun my-minibuffer-keyboard-quit ()
-  "Abort recursive edit.
-  From github user @davvil's init.el"
+  "From github user @davvil's init.el"
   (interactive)
   (if (and delete-selection-mode transient-mark-mode mark-active)
       (setq deactivate-mark t)
     (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
     (abort-recursive-edit)))
 
+;; clojure
 (use-package cider
   :ensure t)
 
+;; coffeescript
 (use-package coffee-mode
   :ensure t
   :mode "\\.coffee\\'"
   :config
   (custom-set-variables '(coffee-tab-width 2)))
 
+;; haskell
 (use-package ghc
   :ensure t
   :commands ghc)
 
+;; js
 (use-package js2-mode
   :ensure t
   :mode "\\.js\\'"
@@ -83,6 +96,7 @@
    js2-basic-offset 2
    js2-bounce-indent-p nil))
 
+;; lisp
 (use-package elisp-slime-nav
   :ensure t
   :commands lisp-mode
@@ -94,10 +108,12 @@
   (setq inferior-lisp-program "/usr/local/bin/sbcl")
   :bind ("C-h K" . find-function-on-key))
 
+;; python
 (use-package python-mode
   :ensure t
   :commands python-mode)
 
+;; ruby
 (use-package ruby-mode
   :ensure t
   :commands ruby-mode
@@ -115,6 +131,7 @@
          ("\\.rxml\\'" . ruby-mode))
   :init (setq ruby-use-encoding-map nil))
 
+;; web 
 (use-package web-mode
   :ensure t
   :mode "\\.(html?|css|scss|erb|php|[agj]sp|as[cp]x)\\'"
@@ -123,9 +140,11 @@
    web-mode-markup-indent-offet 2
    web-mode-css-indent-offset 2))
 
+;; yaml
 (use-package yaml-mode
   :commands yaml-mode)
 
+;; evil-mode -- set reasonable defaults for vim modal emulation
 (use-package evil
   :ensure t
   :init
@@ -160,12 +179,14 @@
     ;; boot evil by default
     (evil-mode 1)))
 
+;; magit -- a git wrapper
 (use-package magit
   :ensure t
   :config
   (setq magit-last-seen-setup-instructions "1.4.0")
   (global-set-key (kbd "C-x g") 'magit-status))
 
+;; org-mode 
 (use-package org
   :ensure t
   :config
