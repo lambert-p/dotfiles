@@ -14,6 +14,7 @@
 
 (package-initialize)
 (setq package-enable-at-startup nil)
+
 (load-file "~/code/dotfiles/emacs.d/lisp/org-to-github.el")
 (setq org-publish-project-alist
       (make-org-publish-project-alist
