@@ -14,6 +14,13 @@
 
 (package-initialize)
 (setq package-enable-at-startup nil)
+(load-file "~/code/dotfiles/emacs.d/lisp/org-to-github.el")
+(setq org-publish-project-alist
+      (make-org-publish-project-alist
+       "blog"
+       "~/code/lambertington.github.io"
+       "~/org/"))
+(org-publish-project "blog" t)
 
 ;; use-package.el init
 (unless (package-installed-p 'use-package)
@@ -28,7 +35,7 @@
 
 (setq load-prefer-newer t)
 
-;; remove bars 
+;; remove bars
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -131,7 +138,7 @@
          ("\\.rxml\\'" . ruby-mode))
   :init (setq ruby-use-encoding-map nil))
 
-;; web 
+;; web
 (use-package web-mode
   :ensure t
   :mode "\\.(html?|css|scss|erb|php|[agj]sp|as[cp]x)\\'"
@@ -186,7 +193,7 @@
   (setq magit-last-seen-setup-instructions "1.4.0")
   (global-set-key (kbd "C-x g") 'magit-status))
 
-;; org-mode 
+;; org-mode
 (use-package org
   :ensure t
   :config
@@ -201,7 +208,9 @@
 
    org-agenda-files (list "~/org/work.org"
                           "~/org/home.org"
-                          "~/org/todo.org")
+                          "~/org/todo.org"
+                          "~/org/blog.org")
+
    org-todo-keywords
    '((sequence "TODO(t)" "|" "DONE(d)")
      (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")

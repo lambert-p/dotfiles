@@ -35,6 +35,14 @@ The default repos are pretty limited in their selection of packages, so let's ad
 
   (package-initialize)
   (setq package-enable-at-startup nil)
+
+  (load-file "~/code/dotfiles/emacs.d/lisp/org-to-github.el")
+  (setq org-publish-project-alist
+        (make-org-publish-project-alist
+         "blog"
+         "~/code/lambertington.github.io"
+         "~/org/"))
+  (org-publish-project "blog" t)
 #+END_SRC
 
 You'll need to use =M-x package-refresh-contents= to reload the list of packages after adding these for the first time.
@@ -62,7 +70,7 @@ You'll need to use =M-x package-refresh-contents= to reload the list of packages
 Remove the ugly menu bars and scroll bars and such
 
 #+BEGIN_SRC emacs-lisp
-  ;; remove bars 
+  ;; remove bars
   (menu-bar-mode -1)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
@@ -124,7 +132,7 @@ And all the smaller, miscellaneous changes
 #+END_SRC
 
 * Helper Functions
-Function for making evil-mode =<Esc>= work properly -- in particular, hitting =<Esc>= should quit the minibuffer. 
+Function for making evil-mode =<Esc>= work properly -- in particular, hitting =<Esc>= should quit the minibuffer.
 
 #+BEGIN_SRC emacs-lisp
   ;; quit minibuffer entirely with <Esc>
@@ -139,7 +147,7 @@ Function for making evil-mode =<Esc>= work properly -- in particular, hitting =<
 #+END_SRC
 
 * Languages
-  Below are language-specific packages and their customizations. 
+  Below are language-specific packages and their customizations.
 
 ** Clojure
 
@@ -233,7 +241,7 @@ Function for making evil-mode =<Esc>= work properly -- in particular, hitting =<
 ** Web mode
 
 #+BEGIN_SRC emacs-lisp
-  ;; web 
+  ;; web
   (use-package web-mode
     :ensure t
     :mode "\\.(html?|css|scss|erb|php|[agj]sp|as[cp]x)\\'"
@@ -306,7 +314,7 @@ Function for making evil-mode =<Esc>= work properly -- in particular, hitting =<
 ** Org mode
 
 #+BEGIN_SRC emacs-lisp
-  ;; org-mode 
+  ;; org-mode
   (use-package org
     :ensure t
     :config
@@ -321,7 +329,9 @@ Function for making evil-mode =<Esc>= work properly -- in particular, hitting =<
 
      org-agenda-files (list "~/org/work.org"
                             "~/org/home.org"
-                            "~/org/todo.org")
+                            "~/org/todo.org"
+                            "~/org/blog.org")
+
      org-todo-keywords
      '((sequence "TODO(t)" "|" "DONE(d)")
        (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
