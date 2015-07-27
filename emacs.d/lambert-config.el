@@ -15,13 +15,14 @@
 (package-initialize)
 (setq package-enable-at-startup nil)
 
-(load-file "~/code/dotfiles/emacs.d/lisp/org-to-github.el")
-(setq org-publish-project-alist
-      (make-org-publish-project-alist
-       "blog"
-       "~/code/lambertington.github.io"
-       "~/org/"))
-(org-publish-project "blog" t)
+;; (load-file "~/code/dotfiles/emacs.d/lisp/org-to-github.el")
+;; (load-file "~/code/org-to-github-pages/org-to-github.el")
+;; (setq org-publish-project-alist
+;;       (make-org-publish-project-alist
+;;        "blog"
+;;        "~/org/"
+;;        "~/code/lambertington.github.io"))
+;; (org-publish-project "blog" t)
 
 ;; use-package.el init
 (unless (package-installed-p 'use-package)
