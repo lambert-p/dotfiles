@@ -191,9 +191,9 @@ Function for making evil-mode =<Esc>= work properly -- in particular, hitting =<
 
 #+BEGIN_SRC emacs-lisp
   ;; lisp
-  (use-package elisp-slime-nav
+  (use-package slime
     :ensure t
-    :commands lisp-mode
+    :commands slime
     :config
     (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
       (add-hook hook 'elisp-slime-nav-mode))
