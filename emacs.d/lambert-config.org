@@ -35,11 +35,6 @@ The default repos are pretty limited in their selection of packages, so let's ad
 
   (package-initialize)
   (setq package-enable-at-startup nil)
-
-  ;; (load-file "~/code/dotfiles/emacs.d/lisp/org-to-github.el")
-  (load-file "~/code/org-to-github-pages/org-to-github.el")
-  (setq org-github-post-dir "~/code/lambertington.github.io/_posts/")
-
 #+END_SRC
 
 You'll need to use =M-x package-refresh-contents= to reload the list of packages after adding these for the first time.
@@ -337,4 +332,20 @@ Function for making evil-mode =<Esc>= work properly -- in particular, hitting =<
      ;; warn me two weeks in advance about looming deadlines
      org-deadline-warning-days 14))
 
+#+END_SRC
+* External scripts
+  The following are scripts or packages loaded from a local directory. 
+** Set up the load path
+First things first, we'll need to set up our local load path
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'load-path "~/.emacs.d/lisp")
+#+END_SRC
+
+** org-to-ghpages
+This is a script I wrote for exporting org-mode data to GitHub Flavored Markdown, which I use for constructing Jekyll blog posts (powered with Pygments and the gh-pages gem), and actual GitHub pages. For more information about the script, please visit [[https://github.com/lambertington/org-to-ghpages/][its repository]].
+
+#+BEGIN_SRC emacs-lisp
+  (require 'org-to-ghpages)
+  (setq org-github-post-dir "~/code/lambertington.github.io/_posts/")
 #+END_SRC
