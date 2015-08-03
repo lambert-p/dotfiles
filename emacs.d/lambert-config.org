@@ -347,5 +347,5 @@ This is a script I wrote for exporting org-mode data to GitHub Flavored Markdown
 
 #+BEGIN_SRC emacs-lisp
   (require 'org-to-ghpages)
-  (setq org-github-post-dir "~/code/lambertington.github.io/_posts/")
+  (setq org-ghpages-post-dir "~/code/lambertington.github.io/_posts/")
 #+END_SRC
