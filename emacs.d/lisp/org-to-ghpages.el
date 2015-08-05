@@ -75,6 +75,12 @@
   :group 'org-export-ghpages
   :type 'boolean)
 
+(defcustom org-ghpages-auto-mark-as-done t
+  "if true, automatically changes TODO state to DONE state upon exporting"
+  :group 'org-export-ghpages
+  :type 'boolean)
+
+
 ;;; Helper functions
 
 (defun org-ghpages-normalize-string (str)
@@ -86,7 +92,7 @@
 if it exists; else we default to README.md"
   (if org-ghpages-include-yaml-front-matter
       (concat org-ghpages-post-dir "/" yaml-date "-" yaml-permalink ".md")
-    (concat org-ghpages-post-dir "README.md")))
+    (concat org-ghpages-post-dir "/" yaml-permalink ".md")))
 
 (defvar *org-ghpages-pygments-langs*
   (mapcar #'org-ghpages-normalize-string
@@ -140,7 +146,7 @@ permalink: %s
 ---\n"))
     (if org-ghpages-include-yaml-front-matter
         (concat (format frontmatter org-ghpages-layout yaml-title yaml-date yaml-comments yaml-tags yaml-permalink) contents)
-      contents)))
+      (concat "# " yaml-title "\n\n" contents))))
 
 (defun org-ghpages-get-pygments-lang (lang)
   "Determine whether our SRC-BLOCK data is in a language supported
@@ -194,8 +200,11 @@ Please consult ./lisp/org/ox-md.el.gz for additional documentation."
   (interactive)
   (save-excursion
     ;; find our first TODO state
+
     (while (null (org-entry-get (point) "TODO" nil t))
       (outline-up-heading 1 t))
+    (if org-ghpages-auto-mark-as-done
+        (org-todo 'done))
 
     ;; extract our YAML for creating the frontmatter
     (setq yaml-date (format-time-string "%Y-%m-%d" (org-get-scheduled-time (point) nil)))
@@ -211,6 +220,7 @@ Please consult ./lisp/org/ox-md.el.gz for additional documentation."
       (let ((outbuf (org-export-to-buffer 'github-pages "*Org Github Pages Export*"
                       nil subtreep visible-only body-only ext-plist)))
         (with-current-buffer outbuf (set-auto-mode t))))))
+        ;; (with-current-buffer outbuf (set-mode markdown-mode))))))
 
 ;;;###autoload
 (defun org-ghpages-export-to-gfm
@@ -220,8 +230,12 @@ Please consult ./lisp/org/ox-md.el.gz for additional documentation."
   (interactive)
   (save-excursion
     ;; find our first TODO state
+
     (while (null (org-entry-get (point) "TODO" nil t))
       (outline-up-heading 1 t))
+
+    (if org-ghpages-auto-mark-as-done
+        (org-todo 'done))
 
     ;; extract our YAML for creating the frontmatter
     (setq yaml-date (format-time-string "%Y-%m-%d" (org-get-scheduled-time (point) nil)))
