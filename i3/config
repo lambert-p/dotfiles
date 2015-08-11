@@ -154,15 +154,16 @@ bar {
 
 # gaps
 for_window [class="^.*"] border pixel 1
-smart_borders no_gaps
-smart_gaps on
-gaps inner 11
-gaps outer 1
+gap_size 11
+# gaps inner 11
+# gaps outer 1
+# smart_borders no_gaps
+# smart_gaps on
 
 # audio controls
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioPause exec mpc toggle 
+bindsym XF86AudioPause exec mpc toggle
 bindsym XF86AudioMute exec amixer -q set Master toggle
