@@ -2,8 +2,10 @@ URxvt*depth: 32
 
 !! COLORS
 
-! background should be black
+! Background should be black
 URxvt*background: [95]#000000
-! font color
+! Font color
 URxvt*foreground: white
 
+! Disable scrollbar
+URxvt.scrollBar: false
