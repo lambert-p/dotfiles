@@ -5,6 +5,8 @@ else
     export ZSH=/home/paul/.oh-my-zsh
 fi
 
+TERM=xterm
+
 # Set name of the theme to load.
 ZSH_THEME="robbyrussell"
 
