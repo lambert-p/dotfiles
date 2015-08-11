@@ -9,7 +9,7 @@
 
 dotfiles=~/code/dotfiles
 backup_dir=~/dotfiles_backup
-files="bash_profile bashrc emacs.d i3 gitignore_global tmux.conf vim vimrc Xresources zshrc"
+files="bash_profile bashrc emacs.d i3 gitignore_global tmux.conf vim vimrc Xresources xinitrc zshrc"
 
 
 # move any existing dotfiles in ~ to backup, then create symlinks
