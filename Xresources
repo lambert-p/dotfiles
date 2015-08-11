@@ -1,0 +1,9 @@
+URxvt*depth: 32
+
+!! COLORS
+
+! background should be black
+URxvt*background: [95]#000000
+! font color
+URxvt*foreground: white
+
