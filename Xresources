@@ -1,11 +1,42 @@
+!!!! urxvt
+
 URxvt*depth: 32
 
-!! COLORS
+URxvt*background: [85]#101010
+URxvt*foreground: [100]#d0d0d0
+URxvt*borderless: 1
 
-! Background should be black
-URxvt*background: [95]#000000
-! Font color
-URxvt*foreground: white
-
-! Disable scrollbar
 URxvt.scrollBar: false
+
+URxvt.saveLines: 5000
+URxvt*termName: rxvt-unicode
+
+! Jellybeans Terminal Colors
+
+! vim: ft=xdefaults
+*background: #151515
+*foreground: #888888
+! black
+*color0: #1C1C1C
+*color8: #404040
+! red
+*color1: #B85335
+*color9: #CF6A4C
+! green
+*color2: #799D6A
+*color10: #99AD6A
+! yellow
+*color3: #FFB964
+*color11: #FAD07A
+! blue
+*color4: #667899
+*color12: #8197BF
+! magenta
+*color5: #8787AF
+*color13: #C6B6EE
+! cyan
+*color6: #668799
+*color14: #8FBFDC
+! white
+*color7: #888888
+*color15: #E8E8D3
