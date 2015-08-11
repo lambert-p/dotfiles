@@ -9,7 +9,7 @@ URxvt*borderless: 1
 URxvt.scrollBar: false
 
 URxvt.saveLines: 5000
-URxvt*termName: rxvt-unicode
+URxvt*termName: urxvt
 
 ! Jellybeans Terminal Colors
 
