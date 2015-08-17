@@ -5,7 +5,9 @@ else
     export ZSH=/home/paul/.oh-my-zsh
 fi
 
-TERM=xterm
+if [[ $TERM == xterm ]]; then
+    TERM=xterm-256color
+fi
 
 # Set name of the theme to load.
 ZSH_THEME="robbyrussell"
