@@ -352,10 +352,10 @@ This is a script I wrote for exporting org-mode data to GitHub Flavored Markdown
 
 ** BrightScript mode
 
-This is some basic syntax highlighting for Brightscript, useful when developing Roku applications. THe code was generally taken from [[https://github.com/MarkRoddy/brightscript-mode/blob/master/brightscript-mode.el][GitHub user MarkRoddy]]. I'm hoping to be able to contribute on extending it sooner than later.
+This is some basic syntax highlighting for Brightscript, useful when developing Roku applications. The code was generously taken from [[https://github.com/MarkRoddy/brightscript-mode/blob/master/brightscript-mode.el][GitHub user MarkRoddy]]. I'm hoping to be able to contribute on extending it sooner than later.
 
 #+BEGIN_SRC emacs-lisp
-  ;; brs
+  ;; brightscript
   (require 'brightscript-mode)
   (add-to-list 'auto-mode-alist '("\\.brs\\'" . brightscript-mode))
 #+END_SRC
