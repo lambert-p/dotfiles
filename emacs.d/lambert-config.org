@@ -172,18 +172,21 @@ Function for making evil-mode =<Esc>= work properly -- in particular, hitting =<
 ** Javascript
 
 #+BEGIN_SRC emacs-lisp
-  ;; js
-  (use-package js3-mode
+  ;; javascript
+  (use-package js2-mode
     :ensure t
     :mode "\\.js\\'"
     :config
-    (setq
-     js3-auto-indent-p t
-     js3-enter-indents-newline t
-     js3-indent-on-enter-key t
-     js3-expr-indent-offset 2
-     js3-paren-indent-offset 2
-     js3-square-indent-offset 2))
+    (setq-default
+     js2-bounce-indent-p nil
+     js-indent-level 2
+     js2-basic-indent 2
+     js2-basic-offset 2
+     js2-auto-indent-p t
+     js2-cleanup-whitespace t
+     js2-enter-indents-newline t
+     js2-indent-on-enter-key t))
+
 #+END_SRC
 
 ** Lisp
