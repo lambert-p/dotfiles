@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 if [ `uname` = 'Darwin' ] ; then
-    export ZSH=/Users/lita/.oh-my-zsh
+    export ZSH=/Users/paul/.oh-my-zsh
 else
     export ZSH=/home/paul/.oh-my-zsh
 fi
@@ -19,7 +19,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 if [ `uname` = 'Darwin' ] ; then
-    export PATH="$PATH:/Users/lita/.rvm/gems/ruby-2.2.0/bin:/Users/lita/.rvm/gems/ruby-2.2.0@global/bin:/Users/lita/.rvm/rubies/ruby-2.2.0/bin:/Users/lita/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/mongodb/bin"
+    export PATH="$PATH:/Users/paul/.rvm/gems/ruby-2.2.0/bin:/Users/paul/.rvm/gems/ruby-2.2.0@global/bin:/Users/paul/.rvm/rubies/ruby-2.2.0/bin:/Users/paul/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/mongodb/bin"
 else
     export PATH="/home/paul/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 fi
@@ -54,11 +54,6 @@ if [ `uname` = 'Darwin' ]; then
    alias PYTHON='python2'
 else
     alias 'open'='xdg-open'
-fi
-
-# set java 1.6 as default on OS X
-if [ `uname` = 'Darwin' ]; then
-    export JAVA_HOME=`/usr/libexec/java_home -v '1.6*'`
 fi
 
 # adding rvm
