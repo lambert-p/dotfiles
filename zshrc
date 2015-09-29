@@ -56,5 +56,7 @@ else
     alias 'open'='xdg-open'
 fi
 
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+
 # adding rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
