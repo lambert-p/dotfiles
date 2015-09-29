@@ -1,0 +1,11 @@
+# Default Github
+Host github.com
+    HostName github.com
+    User lambertington@gmail.com
+    IdentityFile ~/.ssh/id_rsa
+
+# Float Left Interactive
+Host bitbucket.com
+    HostName bitbucket.com
+    User paul@floatleftinteractive.com
+    IdentityFile ~/.ssh/id_fli
