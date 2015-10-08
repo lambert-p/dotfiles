@@ -1,7 +1,7 @@
 # Default Github
 Host github.com
     HostName github.com
-    User lambertington@gmail.com
+    User lambertington
     IdentityFile ~/.ssh/id_rsa
 
 # Float Left Interactive
