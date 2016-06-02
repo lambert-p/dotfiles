@@ -1,6 +1,6 @@
 # Lambert's dotfiles
 
-Updating for new workflow using lubuntu 15.04 rather than OS X. This is heavily a work in progress at this point, and should generally be ignored.
+Updating for new workflow using OS X rather than lubuntu 15.04. This is heavily a work in progress at this point, and should generally be ignored.
 
 Download at your own caution!
 
@@ -15,14 +15,14 @@ As my config files continue to grow, I intend to move towards a more compartment
 Run:
 
 ```sh
-git clone https://github.com/lambertington/dotfiles.git ~/code/dotfiles
+git clone https://gitlab.com/lambotpm/dotfiles.git ~/code/dotfiles
 cd ~/code/dotfiles
 chmod +x hearth.sh
 hearth.sh
 ```
 
-This will symlink files and folders from ~/code/dotfiles to your home directory. 
+This will symlink files and folders from ~/code/dotfiles to your home directory.
 
 ## Special thanks
 
-Thanks to [Zach Holman](https://github.com/holman/dotfiles) for the inspiration. 
+Thanks to [Zach Holman](https://github.com/holman/dotfiles) for the inspiration.
