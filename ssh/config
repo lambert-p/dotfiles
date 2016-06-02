@@ -1,11 +1,12 @@
+# Default GitLab
+Host gitlab.com
+    RSAAuthentication yes
+    IdentityFile ~/.ssh/id_rsa_medotcom
+    User lambotpm
+
 # Default Github
 Host github.com
     HostName github.com
     User lambertington
     IdentityFile ~/.ssh/id_rsa
 
-# Float Left Interactive
-Host bitbucket.com
-    HostName bitbucket.com
-    User paul@floatleftinteractive.com
-    IdentityFile ~/.ssh/id_fli
