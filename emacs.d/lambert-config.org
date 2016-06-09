@@ -205,6 +205,15 @@ Function for making evil-mode =<Esc>= work properly -- in particular, hitting =<
     :bind ("C-h K" . find-function-on-key))
 
 #+END_SRC
+   
+** Lua
+#+BEGIN_SRC emacs-lisp
+  ;; lua
+  (use-package lua-mode
+    :ensure t
+    :mode "\\.lua\\'"
+    :commands lua-mode)
+#+END_SRC
 
 ** Python
 
