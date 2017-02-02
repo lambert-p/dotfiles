@@ -7,6 +7,6 @@ Host gitlab.com
 # Default Github
 Host github.com
     HostName github.com
-    User lambertington
+    User lambotpm
     IdentityFile ~/.ssh/id_rsa
 
