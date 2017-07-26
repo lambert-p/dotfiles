@@ -1,3 +1,6 @@
+Host *
+    UseKeychain yes
+
 # Default GitLab
 Host gitlab.com
     RSAAuthentication yes
