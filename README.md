@@ -15,7 +15,7 @@ As my config files continue to grow, I intend to move towards a more compartment
 Run:
 
 ```sh
-git clone https://gitlab.com/lambotpm/dotfiles.git ~/code/dotfiles
+git clone https://github.com/lambotpm/dotfiles.git ~/code/dotfiles
 cd ~/code/dotfiles
 chmod +x hearth.sh
 hearth.sh
