@@ -1,5 +1,8 @@
 !!!! urxvt
 
+URxvt.transparent: true
+URxvt.shading:10
+
 URxvt*depth: 32
 
 URxvt*background: [85]#101010
