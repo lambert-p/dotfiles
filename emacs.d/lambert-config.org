@@ -76,10 +76,10 @@ Set up the awesome color scheme, Zenburn!
   (load-theme 'zenburn t)
 #+END_SRC
 
-And let's make text a readable size on a retina screen (remember that value is in 1/10pt, so for 14pt typeface..)
+Set up font size (recall that the value is in 1/10pt)
 
 #+BEGIN_SRC emacs-lisp
-  (set-face-attribute 'default nil :height 140)
+  (set-face-attribute 'default nil :height 70)
 #+END_SRC
 
 #+RESULTS:
