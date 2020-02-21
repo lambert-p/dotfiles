@@ -1,5 +1,5 @@
 #+TITLE: My Emacs Config
-#+AUTHOR: Paul M Lambert [[mailto:lambertington@gmail.com][lambertington@gmail.com]]
+#+AUTHOR: Paul M Lambert [[mailto:paul.lambert@linux.com][paul.lambert@linux.com]]
 #+STARTUP: hidestars
 #+PROPERTY: header-args:emacs-lisp :tangle yes
 
@@ -18,7 +18,7 @@ I know Emacs -- it's only fair that Emacs knows me!
 #+BEGIN_SRC emacs-lisp
   ;; include user information
   (setq user-full-name "Paul M Lambert"
-        user-mail-address "lambertington@gmail.com")
+        user-mail-address "paul.lambert@linux.com")
 #+END_SRC
 
 * Setting up the package manager
@@ -79,7 +79,7 @@ Set up the awesome color scheme, Zenburn!
 Set up font size (recall that the value is in 1/10pt)
 
 #+BEGIN_SRC emacs-lisp
-  (set-face-attribute 'default nil :height 70)
+  (set-face-attribute 'default nil :height 120)
 #+END_SRC
 
 #+RESULTS:
@@ -213,7 +213,7 @@ Function for making evil-mode =<Esc>= work properly -- in particular, hitting =<
     :bind ("C-h K" . find-function-on-key))
 
 #+END_SRC
-   
+
 ** Lua
 #+BEGIN_SRC emacs-lisp
   ;; lua
@@ -358,7 +358,7 @@ Function for making evil-mode =<Esc>= work properly -- in particular, hitting =<
 
 #+END_SRC
 * External scripts
-  The following are scripts or packages loaded from a local directory. 
+  The following are scripts or packages loaded from a local directory.
 ** Set up the load path
 First things first, we'll need to set up our local load path
 
@@ -385,7 +385,7 @@ This is some basic syntax highlighting for Brightscript, useful when developing 
 #+END_SRC
 ** Handlebars mode
 
-This adds some syntax highlighting and standard keybinds when editing Handlebars files. Please see [[https://github.com/danielevans/handlebars-mode][the repository]] for more information. 
+This adds some syntax highlighting and standard keybinds when editing Handlebars files. Please see [[https://github.com/danielevans/handlebars-mode][the repository]] for more information.
 
 #+BEGIN_SRC emacs-lisp
   (require 'handlebars-mode)

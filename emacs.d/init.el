@@ -1,5 +1,5 @@
-;;;; init.el for Paul Lambert < lambertington @ gmail.com >
-;;;; github.com/lambertington
+;;;; init.el for Paul Lambert < paul.lambert@linux.com >
+;;;; github.com/lambert-p
 
 
 ;; Added by Package.el.  This must come before configurations of
