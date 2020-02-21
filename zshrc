@@ -18,23 +18,9 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-if [ `uname` = 'Darwin' ] ; then
-    export PATH="$PATH:/Users/paul/.rvm/gems/ruby-2.2.0/bin:/Users/paul/.rvm/gems/ruby-2.2.0@global/bin:/Users/paul/.rvm/rubies/ruby-2.2.0/bin:/Users/paul/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/mongodb/bin"
-else
-    export PATH="$PATH:/home/paul/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-fi
-
-
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
-
-# load in api keys
-# if [ -f ~/.zsh/apikeys ]; then
-#     source ~/.zsh/apikeys
-# else
-#     print "404: ~/.zsh/apikeys not found."
-# fi
 
 # launch tmux automatically
 # [[ $- != *i* ]] && return
@@ -48,13 +34,7 @@ alias tmux="tmux -2"
 # aliases for mac
 if [ `uname` = 'Darwin' ]; then
    alias emacs='open /Applications/Emacs.app'
-   # alias gcc='gcc-4.8'
-   # alias g++='g++-4.8'
-   # alias python='python2'
-   # alias PYTHON='python2'
 else
     alias 'open'='xdg-open'
 fi
 
-# adding rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
