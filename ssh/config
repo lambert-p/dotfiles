@@ -2,14 +2,14 @@ Host *
     UseKeychain yes
 
 # Default GitLab
-Host gitlab.com
-    RSAAuthentication yes
-    IdentityFile ~/.ssh/id_rsa_medotcom
-    User lambotpm
+# Host gitlab.com
+#     RSAAuthentication yes
+#     IdentityFile ~/.ssh/id_rsa_medotcom
+#     User lambotpm
 
 # Default Github
 Host github.com
     HostName github.com
-    User lambotpm
+    User lambert-p
     IdentityFile ~/.ssh/id_rsa
 
