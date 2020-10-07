@@ -64,7 +64,7 @@ generating YAML front matter."
   :type 'string)
 
 (defcustom org-ghpages-comments t
-  "Include Disqus comments by default. Used when 
+  "Include Disqus comments by default. Used when
 generating YAML front matter."
   :group 'org-export-ghpages
   :type 'boolean)
@@ -76,12 +76,12 @@ generating YAML front matter."
 
 (defvar org-ghpages-include-yaml-front-matter t
   "Automatically generate YAML front matter? Set variable
-to `nil' if not exporting to Jekyll (e.g., generating 
+to `nil' if not exporting to Jekyll (e.g., generating
 project notes or a README")
 
 (defvar org-ghpages-use-src-plugin t
-  "If true, uses pygments-style code blocking. If not 
-exporting to Pygments, e.g. generating project notes 
+  "If true, uses pygments-style code blocking. If not
+exporting to Pygments, e.g. generating project notes
 or a README, set value to `nil'.")
 
 
@@ -122,7 +122,7 @@ if it exists; else we default to README.md"
 ;;; Define back-end
 
 (org-export-define-derived-backend 'github-pages 'md
-  :export-block '("MD" "GITHUB")
+  ;; :export-block '("MD" "GITHUB")
   :menu-entry
   '(?g "Export to GitHub Flavored Markdown"
        ((?G "As GFM buffer"
@@ -138,7 +138,7 @@ if it exists; else we default to README.md"
     (italic . org-ghpages-italic)
     (headline . org-ghpages-headline)))
 
-;;; Transcode 
+;;; Transcode
 
 (defun org-ghpages-template (contents info)
   "Return complete document string after conversion."
@@ -207,7 +207,7 @@ Please consult ./lisp/org/ox-md.el.gz for additional documentation."
 
   (setq org-ghpages-use-src-plugin t
         org-ghpages-include-yaml-front-matter t)
-  
+
   (interactive)
   (save-excursion
     ;; find our first TODO state
