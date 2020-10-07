@@ -38,3 +38,5 @@ else
     alias 'open'='xdg-open'
 fi
 
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

@@ -1,5 +1,5 @@
 " .vimrc for Paul Lambert
-" lambertington @ gmail . com
+" paul [dot] lambert @ linux [dot] com
 
 " basics
 syntax on
