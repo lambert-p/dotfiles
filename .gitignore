@@ -2,4 +2,4 @@ emacs.d/elpa
 emacs.d/auto-save-list
 emacs.d/eshell
 emacs.d/lambert-config.el
-
+emacs.d/session.*
