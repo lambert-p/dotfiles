@@ -269,13 +269,6 @@ Function for making evil-mode =<Esc>= work properly -- in particular, hitting =<
      web-mode-css-indent-offset 2))
 #+END_SRC
 
-** YAML
-
-#+BEGIN_SRC emacs-lisp
-  ;; yaml
-  (use-package yaml-mode
-    :commands yaml-mode)
-#+END_SRC
 
 * Utility
 ** Evil-mode
@@ -393,3 +386,15 @@ This adds some syntax highlighting and standard keybinds when editing Handlebars
   (require 'handlebars-mode)
   (add-to-list 'auto-mode-alist '("\\.hbs\\'" . handlebars-mode))
 #+END_SRC
+
+** YAML
+
+#+BEGIN_SRC emacs-lisp
+  ;; yaml
+  ;;  (use-package yaml-mode
+  ;;    :commands yaml-mode)
+
+  (require 'yaml-mode)
+  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+#+END_SRC
+
