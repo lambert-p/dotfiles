@@ -33,7 +33,8 @@ The default repos are pretty limited in their selection of packages, so let's ad
   ;;   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
   ;;   (package-refresh-contents))
   (add-to-list 'package-archives
-    '("MELPA" . "http://melpa.milkbox.net/packages/"))
+    '("MELPA" . "http://melpa.milkbox.net/packages/")
+    '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
   (package-initialize)
   (setq package-enable-at-startup nil)
